@@ -1,0 +1,93 @@
+﻿<Window x:Class="_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox Margin="25,40,25,10" Name="cmbGroup"></ComboBox>
+
+            <ScrollViewer Grid.Column="1" Margin="0,25,0,0">
+                <ListBox Height="105">
+
+                </ListBox>
+            </ScrollViewer>
+        </Grid>
+
+        <DataGrid Grid.Row="1">
+
+        </DataGrid>
+
+        <Grid Grid.Row="2">
+            <TabControl>
+                <TabItem Header="Добавить студента">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.7*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock TextAlignment="Center" VerticalAlignment="Center">Введите фамилию</TextBlock>
+                        <TextBox x:Name="txbSur" Grid.Column="1" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+                        <TextBlock TextAlignment="Center" Grid.Row="1" VerticalAlignment="Center">Введите имя</TextBlock>
+                        <TextBox x:Name="txbName" Grid.Column="1" Grid.Row="1" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+                        <TextBlock TextAlignment="Center" VerticalAlignment="Center" Grid.Row="2">Введите возраст</TextBlock>
+                        <TextBox x:Name="txbAge" Grid.Column="1" Grid.Row="2" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+                        <TextBlock TextAlignment="Center" VerticalAlignment="Center" Grid.Row="3">Введите группу</TextBlock>
+                        <TextBox x:Name="txbGroup" Grid.Column="1" Grid.Row="3" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+
+                        <Button Name="btnAdd" Click="btnAdd_Click" Grid.Column="2" Grid.RowSpan="4" Margin="15">Добавить студента</Button>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Удалить студента">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.7*"/>
+                        </Grid.ColumnDefinitions>
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Center">Введите фамилию</TextBlock>
+                    <TextBox x:Name="txbSur2" Grid.Column="1" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+                    <TextBlock TextAlignment="Center" Grid.Row="1" VerticalAlignment="Center">Введите имя</TextBlock>
+                    <TextBox x:Name="txbName2" Grid.Column="1" Grid.Row="1" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Center" Grid.Row="2">Введите возраст</TextBlock>
+                    <TextBox x:Name="txbAge2" Grid.Column="1" Grid.Row="2" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Center" Grid.Row="3">Введите группу</TextBlock>
+                    <TextBox x:Name="txbGroup2" Grid.Column="1" Grid.Row="3" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+
+                    <Button Name="btnDel" Click="btnDel_Click" Grid.Column="2" Grid.RowSpan="4" Margin="15">Удалить студента</Button>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Изменить студента"></TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</Window>
