@@ -20,17 +20,19 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <ComboBox Margin="25,40,25,10" Name="cmbGroup"></ComboBox>
-
-            <ScrollViewer Grid.Column="1" Margin="0,25,0,0">
-                <ListBox Height="105">
-
-                </ListBox>
-            </ScrollViewer>
+            <ComboBox Margin="25,40,25,10" Name="cmbGroup" SelectionChanged="cmbGroup_Selected">
+                <ComboBoxItem>Э-11</ComboBoxItem>
+                <ComboBoxItem>Э-12</ComboBoxItem>
+                <ComboBoxItem>Э-21</ComboBoxItem>
+                <ComboBoxItem>Э-22</ComboBoxItem>
+                <ComboBoxItem>ИСиП-11</ComboBoxItem>
+                <ComboBoxItem>ИСиП-12</ComboBoxItem>
+                <ComboBoxItem>ИСиП-21</ComboBoxItem>
+                <ComboBoxItem>ИСиП-22</ComboBoxItem>
+            </ComboBox>
         </Grid>
 
-        <DataGrid Grid.Row="1">
-
+        <DataGrid Grid.Row="1" IsReadOnly="True" Name="dtgStudent" SelectedCellsChanged="dtgStudent_SelectedCellsChanged">
         </DataGrid>
 
         <Grid Grid.Row="2">
@@ -50,13 +52,13 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock TextAlignment="Center" VerticalAlignment="Center">Введите фамилию</TextBlock>
-                        <TextBox x:Name="txbSur" Grid.Column="1" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+                        <TextBox x:Name="txbSur" Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"></TextBox>
                         <TextBlock TextAlignment="Center" Grid.Row="1" VerticalAlignment="Center">Введите имя</TextBlock>
-                        <TextBox x:Name="txbName" Grid.Column="1" Grid.Row="1" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+                        <TextBox x:Name="txbName" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
                         <TextBlock TextAlignment="Center" VerticalAlignment="Center" Grid.Row="2">Введите возраст</TextBlock>
-                        <TextBox x:Name="txbAge" Grid.Column="1" Grid.Row="2" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+                        <TextBox x:Name="txbAge" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" TextAlignment="Center" PreviewTextInput="txbAge_PreviewTextInput" TextWrapping="Wrap"></TextBox>
                         <TextBlock TextAlignment="Center" VerticalAlignment="Center" Grid.Row="3">Введите группу</TextBlock>
-                        <TextBox x:Name="txbGroup" Grid.Column="1" Grid.Row="3" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+                        <TextBlock x:Name="txbGroup" Grid.Column="1" VerticalAlignment="Center" Grid.Row="3" TextAlignment="Center" TextWrapping="Wrap" Text="{Binding ElementName=cmbGroup, Path=Text}"></TextBlock>
 
                         <Button Name="btnAdd" Click="btnAdd_Click" Grid.Column="2" Grid.RowSpan="4" Margin="15">Добавить студента</Button>
                     </Grid>
@@ -74,19 +76,43 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="0.7*"/>
                         </Grid.ColumnDefinitions>
-                    <TextBlock TextAlignment="Center" VerticalAlignment="Center">Введите фамилию</TextBlock>
-                    <TextBox x:Name="txbSur2" Grid.Column="1" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Center" >Введите фамилию</TextBlock>
+                        <TextBox x:Name="txbSur2" Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"></TextBox>
                     <TextBlock TextAlignment="Center" Grid.Row="1" VerticalAlignment="Center">Введите имя</TextBlock>
-                    <TextBox x:Name="txbName2" Grid.Column="1" Grid.Row="1" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+                        <TextBox x:Name="txbName2" Grid.Column="1" Grid.Row="1" TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"></TextBox>
                     <TextBlock TextAlignment="Center" VerticalAlignment="Center" Grid.Row="2">Введите возраст</TextBlock>
-                    <TextBox x:Name="txbAge2" Grid.Column="1" Grid.Row="2" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+                        <TextBox x:Name="txbAge2" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" TextAlignment="Center" PreviewTextInput="txbAge_PreviewTextInput" TextWrapping="Wrap"></TextBox>
                     <TextBlock TextAlignment="Center" VerticalAlignment="Center" Grid.Row="3">Введите группу</TextBlock>
-                    <TextBox x:Name="txbGroup2" Grid.Column="1" Grid.Row="3" TextAlignment="Center" TextWrapping="Wrap"></TextBox>
+                        <TextBlock x:Name="txbGroup2" Grid.Column="1" VerticalAlignment="Center" Grid.Row="3" TextAlignment="Center" TextWrapping="Wrap" Text="{Binding ElementName=cmbGroup, Path=Text}"></TextBlock>
 
                     <Button Name="btnDel" Click="btnDel_Click" Grid.Column="2" Grid.RowSpan="4" Margin="15">Удалить студента</Button>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Изменить студента"></TabItem>
+                <TabItem Header="Изменить студента">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.7*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextAlignment="Center" VerticalAlignment="Center">Введите фамилию</TextBlock>
+                        <TextBox x:Name="txbSur3" Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"></TextBox>
+                        <TextBlock TextAlignment="Center" Grid.Row="1" VerticalAlignment="Center">Введите имя</TextBlock>
+                        <TextBox x:Name="txbName3" Grid.Column="1" Grid.Row="1" TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"></TextBox>
+                        <TextBlock TextAlignment="Center" VerticalAlignment="Center" Grid.Row="2" >Введите возраст</TextBlock>
+                        <TextBox x:Name="txbAge3" Grid.Column="1" Grid.Row="2" TextAlignment="Center" VerticalAlignment="Center" PreviewTextInput="txbAge_PreviewTextInput" TextWrapping="Wrap"></TextBox>
+                        <TextBlock TextAlignment="Center" VerticalAlignment="Center" Grid.Row="3">Введите группу</TextBlock>
+                        <TextBlock x:Name="txbGroup3" Grid.Column="1" Grid.Row="3" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding ElementName=cmbGroup, Path=Text}"></TextBlock>
+
+                        <Button Name="btnRem" Click="btnRem_Click" Grid.Column="2" Grid.RowSpan="4" Margin="15">Изменить студента</Button>
+                    </Grid>
+                </TabItem>
             </TabControl>
         </Grid>
     </Grid>
